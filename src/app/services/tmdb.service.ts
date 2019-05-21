@@ -24,6 +24,10 @@ export class TmdbService {
     return `${this.BASE_URL}/${path}?api_key=${this.API_KEY}`;
   }
 
+  formatImageUrl(imgUrl: string) {
+    return 'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + imgUrl;
+  }
+
   getMovieById(movieId: string) {
       const url = this.getFullUrl(`3/movie/${movieId}`);
       return this.http.get(url);

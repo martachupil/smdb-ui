@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { TmdbService, SortType, SortOrder } from '../services/tmdb.service';
 @Component({
   selector: 'app-popular-page',
@@ -7,13 +7,18 @@ import { TmdbService, SortType, SortOrder } from '../services/tmdb.service';
 })
 export class PopularPageComponent implements OnInit {
 
-  popularMovies = [];
+  popularMovies: any[] = [];
 
   constructor(private tmdb: TmdbService) {}
 
+  formatImageUrl(imageUrl: string) {
+    return this.tmdb.formatImageUrl(imageUrl);
+  }
+  
   async ngOnInit() {
     try {
-      const result = await this.tmdb.discover(SortType.Popularity, SortOrder.Desc);
+      const result: any = await this.tmdb.discover(SortType.Popularity, SortOrder.Desc);
+      this.popularMovies = result.results;
       console.log(result);
     } catch (err) {
       console.error({err});
