@@ -11,9 +11,13 @@ export class PopularPageComponent implements OnInit {
 
   constructor(private tmdb: TmdbService) {}
 
-  ngOnInit() {
-    this.tmdb.discover(SortType.Popularity, SortOrder.Desc).then(e => console.log(e)
-    ).catch();
+  async ngOnInit() {
+    try {
+      const result = await this.tmdb.discover(SortType.Popularity, SortOrder.Desc);
+      console.log(result);
+    } catch (err) {
+      console.error({err});
+    }
   }
 
 }

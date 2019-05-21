@@ -8,14 +8,15 @@ const path = require('path');
 
 const proxyFile = path.join(path.dirname(__filename), 'proxy.json');
 const config = require(proxyFile);
+const proxyConfig = {
+  target: config.target,
+  changeOrigin: true
+};
+const proxy = httpProxy.createProxyServer(proxyConfig);
 
-const proxy = httpProxy.createProxyServer({
-    target: config.target,
-});
-const target = config.target;
 const prettyUrl = `http://localhost:${config.port}`;
 
-console.info(`Foodcourt API proxy started at ${prettyUrl}`);
+console.info(`API proxy started at ${prettyUrl}`);
 console.info(`Proxying ${prettyUrl} => ${config.target}`);
 
 http.createServer((req, res) => {
@@ -23,7 +24,7 @@ http.createServer((req, res) => {
   const isOption = req.method.toUpperCase() === 'OPTIONS';
 
   if (!isOption) {
-    proxy.web(req, res, {target});
+    proxy.web(req, res, proxyConfig, err => console.error(`Failed to proxy request ${req.url}: ${err.message}`));
   }
 
   // Patch response header

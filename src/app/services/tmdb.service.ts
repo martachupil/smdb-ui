@@ -30,7 +30,7 @@ export class TmdbService {
   }
 
   discover(sortBy: SortType, sortOrder: SortOrder) {
-    const url = this.getFullUrl('/discover/movie/');
+    const url = this.getFullUrl('discover/movie');
 
     const params = (new HttpParams()).set('sort_by', `${sortBy}.${sortOrder}`);
     return this.http.get(url, {params}).toPromise();
