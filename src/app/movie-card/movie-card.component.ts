@@ -7,9 +7,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class MovieCardComponent implements OnInit {
 
-  @Input() title: string;
+  @Input() movie: any;
   @Input() imageUrl: string;
-  @Input() id: number;
 
   @Output() getDetailsById = new EventEmitter();
 
@@ -19,8 +18,8 @@ export class MovieCardComponent implements OnInit {
   }
 
 
-  getMoreInfo() {
-    this.getDetailsById.emit(this.id);
+  getMoreInfo(id: number) {
+    this.getDetailsById.emit(id);
   }
 
 }

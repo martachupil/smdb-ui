@@ -25,8 +25,7 @@ export class PopularPageComponent implements OnInit {
   }
 
   async getMoreInfo(id: number) {
-    const result: any = await this.tmdb.getMovieDetails(id);
-    console.log(result);
+    const result: any = await this.tmdb.getMovieDetails(id).subscribe((data) => console.log(data));
   }
 
 }

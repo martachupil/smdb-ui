@@ -34,7 +34,7 @@ export class TmdbService {
   }
 
   getMovieDetails(movieId: number) {
-    const url = `${this.BASE_URL}/3/movie/${movieId}?api_key=${this.API_KEY}&language=uk-UA`;
+    const url = `${this.BASE_URL}/movie/${movieId}?api_key=${this.API_KEY}`;
     return this.http.get(url);
   }
 
