@@ -11,10 +11,6 @@ export class PopularPageComponent implements OnInit {
 
   constructor(private tmdb: TmdbService) { }
 
-  formatImageUrl(imageUrl: string) {
-    return this.tmdb.formatImageUrl(imageUrl);
-  }
-
   async ngOnInit() {
     try {
       const result: any = await this.tmdb.discover(SortType.Popularity, SortOrder.Desc);
@@ -22,10 +18,6 @@ export class PopularPageComponent implements OnInit {
     } catch (err) {
       console.error({ err });
     }
-  }
-
-  async getMoreInfo(id: number) {
-    const result: any = await this.tmdb.getMovieDetails(id).subscribe((data) => console.log(data));
   }
 
 }

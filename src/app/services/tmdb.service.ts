@@ -29,13 +29,8 @@ export class TmdbService {
   }
 
   getMovieById(movieId: string) {
-    const url = this.getFullUrl(`3/movie/${movieId}`);
-    return this.http.get(url);
-  }
-
-  getMovieDetails(movieId: number) {
-    const url = `${this.BASE_URL}/movie/${movieId}?api_key=${this.API_KEY}`;
-    return this.http.get(url);
+    const url = this.getFullUrl(`movie/${movieId}`);
+    return this.http.get(url).toPromise();
   }
 
   discover(sortBy: SortType, sortOrder: SortOrder) {

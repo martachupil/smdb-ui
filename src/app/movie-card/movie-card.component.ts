@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TmdbService } from '../services/tmdb.service';
 
 @Component({
   selector: 'app-movie-card',
@@ -8,18 +9,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class MovieCardComponent implements OnInit {
 
   @Input() movie: any;
-  @Input() imageUrl: string;
 
-  @Output() getDetailsById = new EventEmitter();
+  constructor(private tmdb: TmdbService) { }
 
-  constructor() { }
+  get imageUrl() {
+    return this.tmdb.formatImageUrl(this.movie.poster_path);
+  }
 
   ngOnInit() {
   }
-
-
-  getMoreInfo(id: number) {
-    this.getDetailsById.emit(id);
-  }
-
 }

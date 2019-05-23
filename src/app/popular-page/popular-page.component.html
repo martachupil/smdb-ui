@@ -4,7 +4,7 @@
     </div>
     <div class="row">
         <div class="col-md-3" *ngFor="let item of popularMovies">
-            <app-movie-card [movie]="item" [imageUrl]="formatImageUrl(item.poster_path)" (getDetailsById)="getMoreInfo($event)"></app-movie-card>
+            <app-movie-card [movie]="item"></app-movie-card>
         </div>
         <div class="col-md-2"></div>
         <div class="col-md-2"></div>
