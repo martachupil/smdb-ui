@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
       url: '#',
       label: 'Watch List'
     }
-  ]
+  ];
 
   constructor() { }
 
