@@ -1,10 +1,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3" *ngFor="let item of popularMovies">
-            <app-movie-card 
-                [title]="item.title"
-                [imageUrl]="formatImageUrl(item.poster_path)"
-            ></app-movie-card>
+            <app-movie-card [title]="item.title" [imageUrl]="formatImageUrl(item.poster_path)" [id]="item.id"
+                (getDetailsById)="getMoreInfo($event)"></app-movie-card>
         </div>
         <div class="col-md-2"></div>
         <div class="col-md-2"></div>
