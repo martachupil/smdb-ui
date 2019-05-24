@@ -10,6 +10,7 @@ import { TmdbService } from '../services/tmdb.service';
 export class MovieDetailsComponent implements OnInit {
   movie: any;
   loading = false;
+  imageUrl: string;
   error: string;
 
   constructor(private route: ActivatedRoute, private tmdb: TmdbService) { }
@@ -22,14 +23,14 @@ export class MovieDetailsComponent implements OnInit {
       }
 
       this.getMovieData(movieId);
-    })
+    });
   }
 
   async getMovieData(id: string) {
     try {
       this.loading = true;
       this.movie = await this.tmdb.getMovieById(id);
-      console.log(this.movie);
+      this.imageUrl = await this.tmdb.formatImageUrl(this.movie.poster_path);
     } catch (err) {
       this.error = err.message;
       console.error(err);
