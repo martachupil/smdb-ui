@@ -1,10 +1,10 @@
 <div class="container">
+    <div style="margin: 30px 0;">
+        <h4>... popular movies</h4>
+    </div>
     <div class="row">
         <div class="col-md-3" *ngFor="let item of popularMovies">
-            <app-movie-card 
-                [title]="item.title"
-                [imageUrl]="formatImageUrl(item.poster_path)"
-            ></app-movie-card>
+            <app-movie-card [movie]="item"></app-movie-card>
         </div>
         <div class="col-md-2"></div>
         <div class="col-md-2"></div>

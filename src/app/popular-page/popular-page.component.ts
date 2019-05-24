@@ -9,19 +9,14 @@ export class PopularPageComponent implements OnInit {
 
   popularMovies: any[] = [];
 
-  constructor(private tmdb: TmdbService) {}
+  constructor(private tmdb: TmdbService) { }
 
-  formatImageUrl(imageUrl: string) {
-    return this.tmdb.formatImageUrl(imageUrl);
-  }
-  
   async ngOnInit() {
     try {
       const result: any = await this.tmdb.discover(SortType.Popularity, SortOrder.Desc);
       this.popularMovies = result.results;
-      console.log(result);
     } catch (err) {
-      console.error({err});
+      console.error({ err });
     }
   }
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 export enum SortOrder {
@@ -29,14 +29,14 @@ export class TmdbService {
   }
 
   getMovieById(movieId: string) {
-      const url = this.getFullUrl(`3/movie/${movieId}`);
-      return this.http.get(url);
+    const url = this.getFullUrl(`movie/${movieId}`);
+    return this.http.get(url).toPromise();
   }
 
   discover(sortBy: SortType, sortOrder: SortOrder) {
     const url = this.getFullUrl('discover/movie');
 
     const params = (new HttpParams()).set('sort_by', `${sortBy}.${sortOrder}`);
-    return this.http.get(url, {params}).toPromise();
+    return this.http.get(url, { params }).toPromise();
   }
 }
