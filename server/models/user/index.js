@@ -53,7 +53,29 @@ User.init({
         type: Sequelize.STRING,
         allowNull: false,
     },
-}, { sequelize: db.getConnection(), modelName: 'users'});
+    password: {
+        type: Sequelize.VIRTUAL,
+        set(val) {
+            const salt = crypto.randomBytes(16).toString('hex');
+            const hash = crypto.pbkdf2Sync(val, salt, 1000, 64, 'sha512').toString('hex');
+            this.setDataValue('salt', salt);
+            this.setDataValue('hash', hash);
+        },
+        validate: {
+            isLongEnough: function (val) {
+              if (val.length < 7) {
+                throw new Error("Please choose a longer password");
+             }
+          }
+        }
+    }
+}, { 
+    sequelize: db.getConnection(),
+    modelName: 'users',
+    createdAt: false,
+    updatedAt: false,
+    deletedAt: false,
+});
 
 exports.User = User;
 exports.setSecret = (val) => secret = val;
