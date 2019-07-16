@@ -24,10 +24,20 @@ router.get('/profile', auth, async (req, res) => {
     }
 });
 
+router.get('/', async (_, res) => {
+  try {
+    const users = await User.findAll({attributes: ['id', 'email', 'name']});
+    res.status(200).json(users);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({error: err});
+  }
+});
+
 router.post('/register', (req, res) => {
   const {name, email, password } = req.body;
   User.create({name, email, password}).then(u => {
-    const token = user.generateJwt();
+    const token = u.generateJwt();
     res.status(200);
     res.json({
       "token" : token
