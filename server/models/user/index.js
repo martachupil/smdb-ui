@@ -6,13 +6,6 @@ const db = require('../db');
 let secret = null;
 
 class User extends Sequelize.Model {
-    set password(value) {
-        const salt = crypto.randomBytes(16).toString('hex');
-        const hash = crypto.pbkdf2Sync(value, salt, 1000, 64, 'sha512').toString('hex');
-        this.setDataValue('salt', salt);
-        this.setDataValue('hash', hash);
-    }
-
     validPassword(pass) {
         const hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('hex');
         return hash == pass;
