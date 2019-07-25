@@ -6,9 +6,9 @@ const db = require('../db');
 let secret = null;
 
 class User extends Sequelize.Model {
-    validPassword(pass) {
+    validPassword(password) {
         const hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('hex');
-        return hash == pass;
+        return hash == this.hash;
     }
 
     generateJwt() {

@@ -3,6 +3,7 @@ const {config} = require('../config/app');
 const router = express.Router();
 const jwt = require('express-jwt');
 const { User } = require('../models/user');
+const passport = require('passport');
 
 const auth = jwt({
   secret: config.secret,
@@ -50,7 +51,6 @@ router.post('/login', (req, res) => {
     var token;
     if (err) {
       res.status(404).json(err);
-      
       return;
     }
 
