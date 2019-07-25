@@ -10,6 +10,15 @@ export class RegisterPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // registerUser(credentials) {  
+    //   this.authService.login(credentials)  
+    //     .subscribe(result => {   
+    //       if (result)  
+    //         this.router.navigate(['/']);  
+    //       else    
+    //         this.invalidLogin = true;   
+    //     });  
+    // } 
   }
 
 }
