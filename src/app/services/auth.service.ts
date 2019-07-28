@@ -20,21 +20,8 @@ export class AuthService {
   }
 
   login(credentials: Credentials) {   
-    return this.http.post(`${environment.apiUrl}/api/authenticate`,   
-    JSON.stringify(credentials))  
-    .pipe(  
-      map(response => {  
-        console.log(response);
-      //   const result = response._body;  
-      //   if (result && result.token) {  
-      //     // We wanna store it in localStorage  
-      //     localStorage.setItem('token', result.token);  
-      //     return true;  
-      //   }  
-      //   return false;  
-       })  
-    ); 
-   }
+    return this.http.post(`${environment.apiUrl}/users/login`, credentials);
+  }
   
    logout() {   
     localStorage.removeItem('token');  
