@@ -15,8 +15,8 @@ export enum SortType {
   providedIn: 'root'
 })
 export class TmdbService {
-  private readonly BASE_URL = environment.apiUrl;
-  private readonly API_KEY = environment.apiKey;
+  private readonly BASE_URL = environment.tmdbUrl;
+  private readonly API_KEY = environment.tmdbKey;
 
   constructor(private http: HttpClient) { }
 

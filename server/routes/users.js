@@ -43,7 +43,7 @@ router.post('/register', (req, res) => {
     res.json({
       "token" : token
     });
-  }).catch(err => res.status(500).json({message: err}));
+  }).catch(err => res.status(500).json({message: err.toString()}));
 });
 
 router.post('/login', (req, res) => {
