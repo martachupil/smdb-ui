@@ -11,8 +11,6 @@ import { AuthService } from '../services/auth.service';
 })
 export class RegisterPageComponent implements OnInit {
   registerForm: FormGroup;
-  loading = false;
-  submitted = false;
   error: string = null;
 
   constructor(
@@ -33,19 +31,12 @@ export class RegisterPageComponent implements OnInit {
     const val = this.registerForm.value as User;
     try {
       const result = await this.auth.register(val).toPromise();
+      //this.router.navigate(['/']);  
 
       console.log(result);
     } catch (err) {
       this.error = 'Failed to create user';
       console.error(err.error);
     }
-    // this.authService.login(credentials)  
-    //   .subscribe(result => {   
-    //     if (result)  
-    //       this.router.navigate(['/']);  
-    //     else    
-    //       this.invalidLogin = true;   
-    //   });  
-  } 
-
+  }
 }

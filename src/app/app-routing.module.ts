@@ -16,7 +16,7 @@ const routes: Routes = [
     component: PopularPageComponent
   },
   {
-    path: 'sign-up',
+    path: 'login',
     component: SignUpPageComponent
   },
   {
