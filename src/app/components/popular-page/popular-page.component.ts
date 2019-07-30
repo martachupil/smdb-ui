@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { TmdbService, SortType, SortOrder } from '../services/tmdb.service';
+import { TmdbService, SortType, SortOrder } from '../../services/tmdb.service';
 @Component({
   selector: 'app-popular-page',
   templateUrl: './popular-page.component.html',

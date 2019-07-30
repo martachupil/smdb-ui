@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PopularPageComponent } from './popular-page/popular-page.component';
-import { NewMoviesListComponent } from './new-movies-list/new-movies-list.component';
-import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
-import { MovieDetailsComponent } from './movie-details/movie-details.component';
-import { RegisterPageComponent } from './register-page/register-page.component';
+import { PopularPageComponent } from './components/popular-page/popular-page.component';
+import { NewMoviesListComponent } from './components/new-movies-list/new-movies-list.component';
+import { SignUpPageComponent } from './components/sign-up-page/sign-up-page.component';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
 
 const routes: Routes = [
   {
