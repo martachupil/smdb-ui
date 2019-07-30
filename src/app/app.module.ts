@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +14,7 @@ import { TopMoviesListComponent } from './top-movies-list/top-movies-list.compon
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { MoivesStoreTitleComponent } from './movies-store-title/moives-store-title.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +26,15 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     TopMoviesListComponent,
     SignUpPageComponent,
     MoivesStoreTitleComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="text-center">
-    <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="doLogin()">
-      <h1 class="h3 mb-3 font-weight-normal">Log In</h1>
+    <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="doRegister()">
+      <h1 class="h3 mb-3 font-weight-normal">Registration</h1>
      
       <div *ngIf="error" class="alert alert-danger">
         {{error}}
@@ -16,6 +16,14 @@
         autofocus
       />
 
+      <input 
+        type="text"
+        formControlName="name" 
+        class="form-control" 
+        placeholder="User name"
+        required
+      />
+
       <input
         type="password"
         formControlName="password" 
@@ -27,8 +35,8 @@
       <button
         class="btn btn-lg btn-primary btn-block"
         type="submit"
-        [disabled]="!loginForm.valid"
-      >Submit</button>
+        [disabled]="!registerForm.valid"
+      >Register</button>
     </form>
   </div>
 </div>

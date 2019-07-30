@@ -4,6 +4,7 @@ import { PopularPageComponent } from './popular-page/popular-page.component';
 import { NewMoviesListComponent } from './new-movies-list/new-movies-list.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 const routes: Routes = [
   {
@@ -15,8 +16,12 @@ const routes: Routes = [
     component: PopularPageComponent
   },
   {
-    path: 'sign-up',
+    path: 'login',
     component: SignUpPageComponent
+  },
+  {
+    path: 'register',
+    component: RegisterPageComponent
   },
   {
     path: 'movies/:id',

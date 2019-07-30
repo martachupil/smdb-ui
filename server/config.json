@@ -1,0 +1,9 @@
+{
+    "secret": "C1CD5CC88FDF51AB4BFAD92EE001148C",
+    "db": {
+        "host": "localhost",
+        "user": "root",
+        "password": "root",
+        "database": "moviedb"
+    }
+}
