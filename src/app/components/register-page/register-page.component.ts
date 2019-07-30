@@ -31,7 +31,7 @@ export class RegisterPageComponent implements OnInit {
     const val = this.registerForm.value as User;
     try {
       const result = await this.auth.register(val).toPromise();
-      //this.router.navigate(['/']);  
+      this.router.navigate(['/profile']);  
 
       console.log(result);
     } catch (err) {

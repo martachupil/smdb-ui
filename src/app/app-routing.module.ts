@@ -5,6 +5,7 @@ import { NewMoviesListComponent } from './components/new-movies-list/new-movies-
 import { SignUpPageComponent } from './components/sign-up-page/sign-up-page.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterPageComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   },
   {
     path: 'movies/:id',

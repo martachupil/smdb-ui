@@ -15,6 +15,7 @@ import { SignUpPageComponent } from './components/sign-up-page/sign-up-page.comp
 import { MoivesStoreTitleComponent } from './components/movies-store-title/moives-store-title.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RegisterPageComponent } from './components/register-page/register-page.
     SignUpPageComponent,
     MoivesStoreTitleComponent,
     MovieDetailsComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

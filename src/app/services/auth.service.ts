@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators'; 
 import { User, Credentials } from '../models/user';
 import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
 
 interface TokenResponse {
   token: string;
@@ -23,10 +24,19 @@ export class AuthService {
     return this.http.post(`${environment.apiUrl}/users/login`, credentials);
   }
   
-   logout() {   
+  logout() {   
     localStorage.removeItem('token');  
   }  
   
+  currentUser(): Observable<User> {
+    return new Observable(o => {
+      o.next({
+        email: 'user@mail.com',
+        name: 'john doe'
+      });
+    });
+  }
+
   isLoggedIn() {   
     return false;  
   } 
